@@ -89,16 +89,15 @@ export default function HomeScreen() {
         type: type,
       } as any);
 
-      const response = await fetch(
-        "https://poesy-api.andreaselia.workers.dev/generate",
-        {
-          method: "POST",
-          body: formData,
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
+      const apiUrl = process.env.API_URL;
+
+      const response = await fetch(`${apiUrl}/generate`, {
+        method: "POST",
+        body: formData,
+        headers: {
+          "Content-Type": "multipart/form-data",
         },
-      );
+      });
 
       if (response.ok) {
         const data = await response.json();
