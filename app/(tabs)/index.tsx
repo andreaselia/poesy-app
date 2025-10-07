@@ -14,6 +14,7 @@ import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
 import { IconSymbol } from "@/components/ui/icon-symbol";
 import { Fonts } from "@/constants/theme";
+import Printer from "@/components/printer";
 
 export default function HomeScreen() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -140,6 +141,8 @@ export default function HomeScreen() {
         </ThemedText>
       </ThemedView>
       <ThemedText>Take a photo or choose one from your library.</ThemedText>
+
+      <Printer />
 
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.secondaryButton} onPress={takePhoto}>
