@@ -4,7 +4,6 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
-  ScrollView,
 } from "react-native";
 import Animated, {
   useSharedValue,
@@ -71,9 +70,8 @@ export default function Printer() {
   }));
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <View style={styles.content}>
-        <View style={styles.printerContainer}>
+    <View style={styles.container}>
+      <View style={styles.printerContainer}>
           <View style={styles.printerBody}>
             <View style={styles.topHighlight} />
 
@@ -180,19 +178,12 @@ export default function Printer() {
           )}
         </View>
       </View>
-    </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
-    backgroundColor: "#f8fafc",
-    paddingHorizontal: 32,
-    paddingVertical: 64,
-  },
-  content: {
-    flex: 1,
     alignItems: "center",
     justifyContent: "center",
     gap: 32,
