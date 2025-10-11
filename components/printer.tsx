@@ -1,10 +1,5 @@
 import * as React from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-} from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -72,111 +67,110 @@ export default function Printer() {
   return (
     <View style={styles.container}>
       <View style={styles.printerContainer}>
-          <View style={styles.printerBody}>
-            <View style={styles.topHighlight} />
+        <View style={styles.printerBody}>
+          <View style={styles.topHighlight} />
 
-            <Text style={styles.brandName}>e-print</Text>
+          <Text style={styles.brandName}>e-print</Text>
 
-            <View style={styles.statusLights}>
-              <Animated.View
-                style={[
-                  styles.statusLight,
-                  styles.greenLight,
-                  lightAnimatedStyle,
-                ]}
-              />
-              <View style={[styles.statusLight, styles.grayLight]} />
-              <View style={[styles.statusLight, styles.grayLight]} />
-            </View>
-
-            <View style={styles.paperSlot} />
+          <View style={styles.statusLights}>
+            <Animated.View
+              style={[
+                styles.statusLight,
+                styles.greenLight,
+                lightAnimatedStyle,
+              ]}
+            />
+            <View style={[styles.statusLight, styles.grayLight]} />
+            <View style={[styles.statusLight, styles.grayLight]} />
           </View>
 
-          {showPaper && (
-            <Animated.View style={[styles.paper, paperAnimatedStyle]}>
-              <View style={styles.paperContent}>
-                <View style={styles.successIconContainer}>
-                  <View style={styles.successIcon}>
-                    <CheckIcon />
-                  </View>
-                </View>
+          <View style={styles.paperSlot} />
+        </View>
 
-                <View style={styles.receiptContent}>
-                  <Text style={styles.receiptTitle}>Payment Successful</Text>
-                  <Text style={styles.receiptDate}>13th May, 2025 07:30pm</Text>
-
-                  <View style={styles.itemsList}>
-                    <View style={styles.itemRow}>
-                      <Text style={styles.itemText}>1x Bowl of Tofu</Text>
-                      <Text style={styles.itemPrice}>₦8,000.00</Text>
-                    </View>
-                    <View style={styles.itemRow}>
-                      <Text style={styles.itemText}>1x Can Diet Coke</Text>
-                      <Text style={styles.itemPrice}>₦900.00</Text>
-                    </View>
-                    <View style={styles.itemRow}>
-                      <Text style={styles.itemText}>1x Fried Rice</Text>
-                      <Text style={styles.itemPrice}>₦1,800.00</Text>
-                    </View>
-                  </View>
-
-                  <View style={styles.subtotalSection}>
-                    <View style={styles.dashedBorder} />
-                    <View style={styles.subtotalRow}>
-                      <Text style={styles.subtotalText}>Subtotal</Text>
-                      <Text style={styles.subtotalPrice}>₦10,700.00</Text>
-                    </View>
-                    <View style={styles.subtotalRow}>
-                      <Text style={styles.subtotalText}>VAT (9%)</Text>
-                      <Text style={styles.subtotalPrice}>₦963.00</Text>
-                    </View>
-                    <View style={styles.subtotalRow}>
-                      <Text style={styles.subtotalText}>Service Fee</Text>
-                      <Text style={styles.subtotalPrice}>₦2,000.00</Text>
-                    </View>
-                  </View>
-
-                  <View style={styles.totalSection}>
-                    <View style={styles.solidBorder} />
-                    <View style={styles.totalRow}>
-                      <Text style={styles.totalText}>TOTAL</Text>
-                      <Text style={styles.totalPrice}>₦13,663.00</Text>
-                    </View>
-                  </View>
-
-                  <Text style={styles.thankYou}>👋 THANK YOU</Text>
+        {showPaper && (
+          <Animated.View style={[styles.paper, paperAnimatedStyle]}>
+            <View style={styles.paperContent}>
+              <View style={styles.successIconContainer}>
+                <View style={styles.successIcon}>
+                  <CheckIcon />
                 </View>
               </View>
-            </Animated.View>
-          )}
-        </View>
 
-        <View style={styles.controls}>
+              <View style={styles.receiptContent}>
+                <Text style={styles.receiptTitle}>Payment Successful</Text>
+                <Text style={styles.receiptDate}>13th May, 2025 07:30pm</Text>
+
+                <View style={styles.itemsList}>
+                  <View style={styles.itemRow}>
+                    <Text style={styles.itemText}>1x Bowl of Tofu</Text>
+                    <Text style={styles.itemPrice}>₦8,000.00</Text>
+                  </View>
+                  <View style={styles.itemRow}>
+                    <Text style={styles.itemText}>1x Can Diet Coke</Text>
+                    <Text style={styles.itemPrice}>₦900.00</Text>
+                  </View>
+                  <View style={styles.itemRow}>
+                    <Text style={styles.itemText}>1x Fried Rice</Text>
+                    <Text style={styles.itemPrice}>₦1,800.00</Text>
+                  </View>
+                </View>
+
+                <View style={styles.subtotalSection}>
+                  <View style={styles.dashedBorder} />
+                  <View style={styles.subtotalRow}>
+                    <Text style={styles.subtotalText}>Subtotal</Text>
+                    <Text style={styles.subtotalPrice}>₦10,700.00</Text>
+                  </View>
+                  <View style={styles.subtotalRow}>
+                    <Text style={styles.subtotalText}>VAT (9%)</Text>
+                    <Text style={styles.subtotalPrice}>₦963.00</Text>
+                  </View>
+                  <View style={styles.subtotalRow}>
+                    <Text style={styles.subtotalText}>Service Fee</Text>
+                    <Text style={styles.subtotalPrice}>₦2,000.00</Text>
+                  </View>
+                </View>
+
+                <View style={styles.totalSection}>
+                  <View style={styles.solidBorder} />
+                  <View style={styles.totalRow}>
+                    <Text style={styles.totalText}>TOTAL</Text>
+                    <Text style={styles.totalPrice}>₦13,663.00</Text>
+                  </View>
+                </View>
+
+                <Text style={styles.thankYou}>👋 THANK YOU</Text>
+              </View>
+            </View>
+          </Animated.View>
+        )}
+      </View>
+
+      <View style={styles.controls}>
+        <TouchableOpacity
+          style={[
+            styles.button,
+            styles.primaryButton,
+            isPrinting && styles.disabledButton,
+          ]}
+          onPress={handlePrint}
+          disabled={isPrinting}
+        >
+          <Text style={[styles.buttonText, styles.primaryButtonText]}>
+            {isPrinting ? "Printing..." : "Print Receipt"}
+          </Text>
+        </TouchableOpacity>
+
+        {showPaper && !isPrinting && (
           <TouchableOpacity
-            style={[
-              styles.button,
-              styles.primaryButton,
-              isPrinting && styles.disabledButton,
-            ]}
-            onPress={handlePrint}
-            disabled={isPrinting}
+            style={[styles.button, styles.secondaryButton]}
+            onPress={handleReset}
           >
-            <Text style={[styles.buttonText, styles.primaryButtonText]}>
-              {isPrinting ? "Printing..." : "Print Receipt"}
+            <Text style={[styles.buttonText, styles.secondaryButtonText]}>
+              Reset
             </Text>
           </TouchableOpacity>
-
-          {showPaper && !isPrinting && (
-            <TouchableOpacity
-              style={[styles.button, styles.secondaryButton]}
-              onPress={handleReset}
-            >
-              <Text style={[styles.buttonText, styles.secondaryButtonText]}>
-                Reset
-              </Text>
-            </TouchableOpacity>
-          )}
-        </View>
+        )}
       </View>
     </View>
   );
